@@ -1,9 +1,9 @@
-// FECHA
+// CONTADOR
 const startDate = new Date("2024-12-24T00:00:00");
 
 function updateCounter() {
   const now = new Date();
-  let diff = now - startDate;
+  const diff = now - startDate;
 
   const seconds = Math.floor(diff / 1000);
   const minutes = Math.floor(seconds / 60);
@@ -21,12 +21,17 @@ function updateCounter() {
 setInterval(updateCounter, 1000);
 updateCounter();
 
-// CORAZONES CAYENDO
+// CORAZONES CAYENDO DESDE EL CORAZÓN GRANDE
 function createHeart() {
   const heart = document.createElement("div");
   heart.className = "small-heart";
-  heart.style.left = Math.random() * window.innerWidth + "px";
-  heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+
+  const startX = 900 + Math.random() * 200; 
+  heart.style.left = startX + "px";
+
+  const duration = 4 + Math.random() * 3;
+  heart.style.animationDuration = duration + "s";
+
   document.body.appendChild(heart);
 
   setTimeout(() => {
@@ -34,4 +39,5 @@ function createHeart() {
   }, 7000);
 }
 
-setInterval(createHeart, 800);
+setInterval(createHeart, 500);
+
