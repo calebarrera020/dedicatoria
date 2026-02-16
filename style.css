@@ -1,114 +1,115 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+margin: 0;
+padding: 0;
+box-sizing: border-box;
 }
 
 .Love__You {
-    min-height: 100vh;
-    background: linear-gradient(135deg, #F8E9F4, #EFE1F7);
-    font-family: Arial, sans-serif;
-    color: #5E2B5E;
+min-height: 100vh;
+background: linear-gradient(135deg,#F8E9F4,#EFE1F7);
+font-family: Arial;
+color:#5E2B5E;
+overflow:hidden;
 }
 
 .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 50px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:60px;
 }
 
 .text {
-    width: 45%;
-    font-size: 18px;
-}
-
-.text h2 {
-    margin-bottom: 15px;
-    color: #7A3E7A;
-}
-
-.time {
-    margin-top: 20px;
-    font-weight: bold;
+width:45%;
+font-size:18px;
 }
 
 #counter {
-    margin-top: 10px;
-    font-size: 20px;
-    color: #8B4C8B;
+margin-top:10px;
+font-size:22px;
+font-weight:bold;
 }
 
-/* 🌳 Árbol */
+/* Árbol */
 .tree {
-    width: 300px;
-    height: 350px;
-    position: relative;
+width:300px;
+height:400px;
+position:relative;
 }
 
-/* 💜 Corazón */
+/* Corazón grande */
 .heart {
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    animation: beat 1.5s infinite;
+position:absolute;
+width:250px;
+height:250px;
+animation:beat 2s infinite;
 }
 
 .heart::before,
 .heart::after {
-    content: "";
-    position: absolute;
-    width: 150px;
-    height: 240px;
-    background: linear-gradient(180deg, #B06AB3, #7F3FBF);
-    border-radius: 150px 150px 0 0;
-    box-shadow: 0 0 15px rgba(176, 106, 179, 0.4);
+content:"";
+position:absolute;
+width:125px;
+height:200px;
+background:linear-gradient(180deg,#B06AB3,#7F3FBF);
+border-radius:125px 125px 0 0;
 }
 
 .heart::before {
-    left: 150px;
-    transform: rotate(-45deg);
-    transform-origin: 0 100%;
+left:125px;
+transform:rotate(-45deg);
+transform-origin:0 100%;
 }
 
 .heart::after {
-    left: 0;
-    transform: rotate(45deg);
-    transform-origin: 100% 100%;
+left:0;
+transform:rotate(45deg);
+transform-origin:100% 100%;
 }
 
 /* Tronco */
 .tree::after {
-    top: 240px;
-    left: 130px;
-    width: 40px;
-    height: 80px;
-    background: #8B5A2B;
-    border-radius: 10px;
+content:"";
+position:absolute;
+bottom:0;
+left:130px;
+width:40px;
+height:100px;
+background:#8B5A2B;
+border-radius:10px;
 }
 
- @media (max-width: 768px) {
-
-    .container {
-        gap: 10px; /* reduce espacio vertical */
-    }
-
-    .tree {
-        margin-top: -10px; /* sube el corazón */
-    }
-
-    .heart {
-        margin-bottom: -20px; /* acerca al tronco */
-    }
-
-    .tree::after {
-        top: 200px; /* pega el tronco al corazón */
-    }
+/* Corazones cayendo */
+.falling-heart {
+position:absolute;
+top:0;
+width:15px;
+height:15px;
+background:#B06AB3;
+transform:rotate(45deg);
+animation:fall linear forwards;
 }
 
-.heart {
-    filter: drop-shadow(0 10px 20px rgba(128, 64, 160, 0.25));
+.falling-heart::before,
+.falling-heart::after {
+content:"";
+position:absolute;
+width:15px;
+height:15px;
+background:#B06AB3;
+border-radius:50%;
 }
 
+.falling-heart::before { top:-7px; left:0; }
+.falling-heart::after { left:-7px; top:0; }
 
+@keyframes fall {
+0% { transform: translateY(0) rotate(45deg); opacity:1; }
+100% { transform: translateY(350px) rotate(45deg); opacity:0; }
+}
+
+@keyframes beat {
+0% { transform:scale(1); }
+50% { transform:scale(1.08); }
+100% { transform:scale(1); }
 }
