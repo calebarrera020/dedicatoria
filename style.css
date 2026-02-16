@@ -1,105 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  overflow: hidden;
-  background: linear-gradient(135deg, #e6ccff, #d9b3ff, #f2e6ff);
+    min-height: 100vh;
+    background: linear-gradient(135deg, #E9D5F5, #D8B4F8);
+    font-family: Arial, sans-serif;
+    color: #5E2B5E;
 }
 
 .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 100vh;
-  padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
 }
 
 .text {
-  max-width: 500px;
-  color: #4b1c71;
+    width: 45%;
+    font-size: 18px;
+}
+
+.text h2 {
+    margin-bottom: 15px;
+    color: #7A3E7A;
+}
+
+#counter {
+    margin-top: 10px;
+    font-size: 22px;
+    font-weight: bold;
 }
 
 /* ÁRBOL */
 .tree {
-  position: relative;
-  width: 260px;
-  height: 360px;
+    position: relative;
+    width: 300px;
+    height: 450px;
 }
 
-/* CORAZÓN GIGANTE */
+/* CORAZÓN GRANDE */
 .heart {
-  position: absolute;
-  width: 180px;
-  height: 180px;
-  background: linear-gradient(145deg, #b266ff, #7a00cc);
-  transform: rotate(-45deg);
-  top: 20px;
-  left: 40px;
-  box-shadow: 0 10px 30px rgba(122, 0, 204, 0.4);
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) rotate(-45deg);
+    width: 180px;
+    height: 180px;
+    background: linear-gradient(180deg, #C084FC, #9333EA);
+    animation: beat 1.5s infinite;
+    box-shadow: 0 0 25px rgba(147, 51, 234, 0.5);
 }
 
 .heart::before,
 .heart::after {
-  content: "";
-  position: absolute;
-  width: 180px;
-  height: 180px;
-  background: inherit;
-  border-radius: 50%;
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    background: linear-gradient(180deg, #C084FC, #9333EA);
+    border-radius: 50%;
 }
 
 .heart::before {
-  top: -90px;
-  left: 0;
+    top: -90px;
+    left: 0;
 }
 
 .heart::after {
-  left: 90px;
-  top: 0;
+    left: 90px;
+    top: 0;
 }
 
 /* TRONCO NATURAL */
-.trunk {
-  position: absolute;
-  bottom: 0;
-  left: 110px;
-  width: 40px;
-  height: 140px;
-  background: linear-gradient(#8b5a2b, #5c3a1a);
-  border-radius: 20px;
-  box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+.tree::after {
+    content: "";
+    position: absolute;
+    top: 180px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 200px;
+    background: linear-gradient(180deg, #8B5A2B, #5C3A1E);
+    border-radius: 20px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
 }
 
 /* CORAZONES PEQUEÑOS */
 .small-heart {
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  background: #d9a3ff;
-  transform: rotate(-45deg);
-  animation: fall linear infinite;
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: #A855F7;
+    transform: rotate(-45deg);
+    animation: fall 6s linear infinite;
+    opacity: 0.8;
 }
 
 .small-heart::before,
 .small-heart::after {
-  content: "";
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  background: inherit;
-  border-radius: 50%;
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: #A855F7;
+    border-radius: 50%;
 }
 
 .small-heart::before {
-  top: -8px;
-  left: 0;
+    top: -7px;
+    left: 0;
 }
 
 .small-heart::after {
-  left: 8px;
-  top: 0;
+    left: 7px;
+    top: 0;
+}
+
+/* ANIMACIONES */
+@keyframes beat {
+    0%, 100% { transform: translateX(-50%) rotate(-45deg) scale(1); }
+    50% { transform: translateX(-50%) rotate(-45deg) scale(1.1); }
 }
 
 @keyframes fall {
-  0% { top: 0; opacity: 1; }
-  100% { top: 500px; opacity: 0; }
+    0% { top: 50px; opacity: 1; }
+    100% { top: 400px; opacity: 0; }
 }
