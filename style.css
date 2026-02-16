@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.Love__You {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #F8E9F4, #EFE1F7);
+    font-family: Arial, sans-serif;
+    color: #5E2B5E;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+}
+
+.text {
+    width: 45%;
+    font-size: 18px;
+}
+
+.text h2 {
+    margin-bottom: 15px;
+    color: #7A3E7A;
+}
+
+.time {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+#counter {
+    margin-top: 10px;
+    font-size: 20px;
+    color: #8B4C8B;
+}
+
+/* 🌳 Árbol */
+.tree {
+    width: 300px;
+    height: 350px;
+    position: relative;
+}
+
+/* 💜 Corazón */
+.heart {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    animation: beat 1.5s infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 240px;
+    background: linear-gradient(180deg, #B06AB3, #7F3FBF);
+    border-radius: 150px 150px 0 0;
+    box-shadow: 0 0 15px rgba(176, 106, 179, 0.4);
+}
+
+.heart::before {
+    left: 150px;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+
+.heart::after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+/* Tronco */
+.tree::after {
+    top: 240px;
+    left: 130px;
+    width: 40px;
+    height: 80px;
+    background: #8B5A2B;
+    border-radius: 10px;
+}
+
+ @media (max-width: 768px) {
+
+    .container {
+        gap: 10px; /* reduce espacio vertical */
+    }
+
+    .tree {
+        margin-top: -10px; /* sube el corazón */
+    }
+
+    .heart {
+        margin-bottom: -20px; /* acerca al tronco */
+    }
+
+    .tree::after {
+        top: 200px; /* pega el tronco al corazón */
+    }
+}
+
+.heart {
+    filter: drop-shadow(0 10px 20px rgba(128, 64, 160, 0.25));
+}
+
+
+}
